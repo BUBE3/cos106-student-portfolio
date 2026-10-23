@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner | Eriugo Oluebube Miracle</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Unique local styles for the interactive tracker component */
+        .planner-container {
+            max-width: 750px;
+            margin-top: 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .stat-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-box h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        .stat-box p {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-pure);
+        }
+        .workspace-card {
+            background: var(--bg-dark-card);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+        .input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .input-group input {
+            flex: 1;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            color: var(--text-pure);
+            font-size: 15px;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--text-pure);
+        }
+        /* Custom styled placeholder if the list is empty */
+        .empty-placeholder {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            opacity: 0.6;
+            font-size: 15px;
+            border: 1px dashed var(--border-subtle);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Eriugo Oluebube Miracle</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About & CV</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html" class="active">Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-wrapper">
+        <span class="tag-indicator">Interactive Workspace Component</span>
+        <h1 style="margin-bottom: 10px;">Academic Activity Tracker</h1>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Manage goals, task assignments, and curriculum checkpoints seamlessly.</p>
+
+        <div class="planner-container">
+            <!-- DATA COUNTER METRICS BAR -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h4>Total Metrics</h4>
+                    <p id="totalCount">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Pending Execution</h4>
+                    <p id="pendingCount">0</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Completed Matrix</h4>
+                    <p id="completedCount" style="color: #10b981;">0</p>
+                </div>
+            </div>
+
+            <!-- CORE WORKSPACE INTERFACE -->
+            <div class="workspace-card">
+                <div class="input-group">
+                    <input type="text" id="taskInput" placeholder="Enter target task parameters (e.g., Run regression script)...">
+                    <button onclick="addTask()">Commit Task</button>
+                </div>
+
+                <!-- DYNAMIC TASK RENDERING CONTAINER -->
+                <div id="taskList"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../Scripts/planner.js"></script>
+    <footer><p>&copy; 2026 MIVA Open University. All Rights Reserved.</p></footer>
+</body>
+</html>
